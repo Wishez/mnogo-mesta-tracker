@@ -1,0 +1,9 @@
+services:
+  mnogo-mesta-dev:
+    container_name: mnogo-mesta-tracker
+    build:
+      context: .
+    command: npm start
+    env_file:
+      - .env
+    restart: unless-stopped
