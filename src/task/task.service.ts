@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Cron } from '@nestjs/schedule';
+import { Cron, CronExpression } from '@nestjs/schedule';
 import { ParserService } from '../parser/parser.service';
 import { StorageService } from '../storage/storage.service';
 import { TelegramService } from '../telegram/telegram.service';
@@ -15,7 +15,7 @@ export class TaskService {
     private readonly telegramService: TelegramService,
   ) {}
 
-  @Cron('0 * * * *') // Каждый час в 0 минут
+  @Cron(CronExpression.EVERY_5_MINUTES)
   async handleCron() {
     try {
       this.logger.log('Starting cell monitoring...');
