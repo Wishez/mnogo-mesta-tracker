@@ -9,3 +9,5 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    ports:
+      - "5252:3000"

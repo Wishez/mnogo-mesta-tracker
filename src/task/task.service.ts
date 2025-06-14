@@ -16,7 +16,7 @@ export class TaskService {
   ) {}
 
   @Cron(CronExpression.EVERY_5_MINUTES)
-  async handleCron() {
+  async checkCells() {
     try {
       this.logger.log('Starting cell monitoring...');
 
